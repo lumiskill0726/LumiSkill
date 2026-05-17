@@ -1,0 +1,257 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 18px 0;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 24px rgba(108, 62, 232, 0.1);
+  padding: 12px 0;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+/* ---- Logo ---- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(108, 62, 232, 0.55);
+  flex-shrink: 0;
+}
+
+.logoIcon span {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--dark);
+  font-family: var(--font-display);
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+
+.header:not(.scrolled) .logoText {
+  color: white;
+}
+
+.logoAccent {
+  color: var(--secondary);
+}
+
+/* ---- Nav ---- */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.navLink {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.navLink:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.header.scrolled .navLink {
+  color: var(--text-secondary);
+}
+
+.header.scrolled .navLink:hover {
+  color: var(--primary);
+  background: var(--light-2);
+}
+
+/* ---- Actions ---- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btnDemo {
+  padding: 10px 20px !important;
+  font-size: 0.9rem !important;
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.btnDemo:hover {
+  background: white !important;
+  color: var(--primary) !important;
+}
+
+.header.scrolled .btnDemo {
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+.header.scrolled .btnDemo:hover {
+  background: var(--primary) !important;
+  color: white !important;
+}
+
+.btnEnroll {
+  padding: 10px 20px !important;
+  font-size: 0.9rem !important;
+}
+
+/* ---- Hamburger ---- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled .hamburger span {
+  background: var(--dark);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---- Mobile Menu ---- */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 11, 30, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.mobileMenu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 24px;
+}
+
+.mobileNavLink {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  padding: 14px 32px;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-display);
+}
+
+.mobileNavLink:hover {
+  background: rgba(108, 62, 232, 0.2);
+  color: var(--accent);
+}
+
+.mobileCtas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileCtas .btn {
+  width: 100%;
+  justify-content: center;
+  padding: 15px !important;
+  font-size: 1rem !important;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    margin-left: auto;
+  }
+}

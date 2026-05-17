@@ -1,0 +1,77 @@
+.hero {
+  position: relative;
+  background: var(--gradient-hero);
+  padding: 160px 0 100px;
+  text-align: center;
+  overflow: hidden;
+}
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.heroContent { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.heroTitle { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; color: white; line-height: 1.15; font-family: var(--font-display); }
+.heroGradient { background: linear-gradient(135deg, #FFD700, #FF9A5C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.heroSubtitle { font-size: 1.1rem; color: rgba(255,255,255,0.75); max-width: 600px; line-height: 1.7; }
+.heroBadges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.heroBadges span { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-full); padding: 6px 16px; color: white; font-size: 0.85rem; font-weight: 500; }
+
+.featuresSection { background: var(--light); padding: 48px 0 !important; }
+.featuresGrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.featureItem { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px 20px; background: white; border-radius: var(--radius-lg); border: 1px solid var(--border); transition: all 0.3s ease; min-height: 150px; }
+.featureItem:hover { border-color: rgba(108,62,232,0.3); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.featureIcon { font-size: 2rem; flex-shrink: 0; }
+.featureTitle { font-size: 0.92rem; font-weight: 700; color: var(--text-primary); font-family: var(--font-display); margin-bottom: 4px; }
+.featureDesc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+.curriculum { background: white; padding-top: 48px !important; }
+
+.classGroups { display: flex; flex-direction: column; gap: 32px; }
+.classGroup { border-radius: var(--radius-xl); border: 2px solid; overflow: hidden; transition: box-shadow 0.3s ease; }
+.classGroup:hover { box-shadow: var(--shadow-lg); }
+
+.classGroupHeader { display: flex; align-items: center; gap: 20px; padding: 28px 32px; border-bottom: 1px solid; }
+.classGroupIcon { font-size: 3rem; flex-shrink: 0; }
+.classLabel { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
+.classTitle { font-size: 1.3rem; font-weight: 800; color: var(--text-primary); font-family: var(--font-display); margin-bottom: 4px; }
+.classTagline { font-size: 0.875rem; color: var(--text-secondary); }
+
+.subjects { padding: 0 32px; }
+.subjectCard { display: flex; align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+.subjectCard:last-child { border-bottom: none; }
+.subjectIcon { font-size: 1.8rem; flex-shrink: 0; }
+.subjectInfo { flex: 1; }
+.subjectName { font-size: 1rem; font-weight: 700; color: var(--text-primary); font-family: var(--font-display); margin-bottom: 2px; }
+.subjectDesc { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 4px; }
+.subjectDuration { font-size: 0.78rem; font-weight: 600; color: var(--primary); background: rgba(108,62,232,0.08); border: 1px solid rgba(108,62,232,0.2); border-radius: var(--radius-full); padding: 2px 10px; display: inline-flex; align-items: center; gap: 4px; width: fit-content; }
+.subjectPriceWrap { display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; gap: 2px; }
+.subjectPrice { font-size: 1.2rem; font-weight: 800; color: var(--text-primary); font-family: var(--font-display); }
+.subjectPriceSub { font-size: 0.7rem; color: var(--text-muted); white-space: nowrap; }
+.subjectEnroll { flex-shrink: 0; }
+
+.outcomeRow { display: flex; align-items: center; gap: 10px; padding: 16px 32px; background: rgba(108,62,232,0.04); border-top: 1px solid var(--border); }
+.outcomeIcon { font-size: 1.1rem; }
+.outcomeText { font-size: 0.875rem; color: var(--text-secondary); }
+.outcomeText strong { color: var(--primary); }
+
+.freeTrialSection { background: var(--light); }
+.freeTrialBox { display: flex; align-items: center; gap: 32px; background: var(--gradient-primary); border-radius: var(--radius-xl); padding: 48px; flex-wrap: wrap; }
+.freeTrialEmoji { font-size: 4rem; flex-shrink: 0; }
+.freeTrialTitle { font-size: 1.6rem; font-weight: 800; color: white; font-family: var(--font-display); margin-bottom: 12px; }
+.freeTrialDesc { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 24px; max-width: 560px; }
+.freeTrialBox .btn { background: white; color: var(--primary); }
+.freeTrialBox .btn:hover { background: var(--accent); color: var(--dark); }
+
+@media (max-width: 1024px) { .featuresGrid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) {
+  .featuresGrid { grid-template-columns: repeat(2, 1fr); }
+  .classGroupHeader { flex-direction: column; text-align: center; }
+  .subjectCard { flex-wrap: wrap; }
+  .subjects { padding: 0 16px; }
+  .outcomeRow { padding: 16px; }
+  .classGroupHeader { padding: 20px 16px; }
+  .freeTrialBox { flex-direction: column; text-align: center; padding: 32px 24px; }
+}
+@media (max-width: 480px) { .featuresGrid { grid-template-columns: 1fr; } }

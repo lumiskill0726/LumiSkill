@@ -1,0 +1,424 @@
+.hero {
+  min-height: 100vh;
+  background: var(--gradient-hero);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+/* ---- Background ---- */
+.bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bgGlow1 {
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(108, 62, 232, 0.4) 0%, transparent 70%);
+  filter: blur(40px);
+  animation: slowMove 8s ease-in-out infinite alternate;
+}
+
+.bgGlow2 {
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.3) 0%, transparent 70%);
+  filter: blur(40px);
+  animation: slowMove 10s ease-in-out infinite alternate-reverse;
+}
+
+.bgGlow3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(139, 98, 240, 0.15) 0%, transparent 70%);
+  filter: blur(60px);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  animation: particleFloat calc(4s + calc(var(--i) * 0.4s)) ease-in-out infinite alternate;
+  left: calc(var(--i) * 5% + 2%);
+  top: calc(var(--i) * 4% + 5%);
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(0) translateX(0); opacity: 0.2; }
+  100% { transform: translateY(-30px) translateX(10px); opacity: 0.8; }
+}
+
+@keyframes slowMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(30px, 30px); }
+}
+
+/* ---- Floating Tech Badges ---- */
+.floatingBadge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 8px 14px;
+  animation: float 4s ease-in-out infinite;
+  z-index: 2;
+}
+
+.badgeIcon {
+  font-size: 1.2rem;
+}
+
+.badgeLabel {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ---- Content ---- */
+.content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+}
+
+/* ---- Announcement ---- */
+.announcement {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 50px;
+  padding: 8px 20px;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 500;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.announcementDot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.announcementLink {
+  color: var(--accent);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 215, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+
+.announcementLink:hover {
+  text-decoration-color: var(--accent);
+}
+
+/* ---- Heading ---- */
+.heading {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 800;
+  color: white;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  font-family: var(--font-display);
+}
+
+.headingHighlight {
+  position: relative;
+  color: var(--accent);
+  text-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+}
+
+.headingGradient {
+  background: linear-gradient(135deg, #FF6B35, #FF9A5C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- Subheading ---- */
+.subheading {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+/* ---- Trust badges ---- */
+.trustRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.trustBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  padding: 6px 16px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ---- CTA Buttons ---- */
+.ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ctaPrimary {
+  font-size: 1.05rem !important;
+  padding: 18px 36px !important;
+  box-shadow: 0 8px 32px rgba(255, 107, 53, 0.4) !important;
+}
+
+.ctaPrimary:hover {
+  box-shadow: 0 16px 48px rgba(255, 107, 53, 0.5) !important;
+  transform: translateY(-3px) !important;
+}
+
+.ctaSecondary {
+  font-size: 1.05rem !important;
+  padding: 18px 36px !important;
+}
+
+/* ---- Social Proof ---- */
+.socialProof {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(108, 62, 232, 0.6), rgba(139, 98, 240, 0.6));
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-left: -10px;
+  transition: transform 0.2s ease;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.avatar:hover {
+  transform: translateY(-4px);
+}
+
+.proofText {
+  text-align: left;
+}
+
+.stars {
+  font-size: 0.85rem;
+  margin-bottom: 2px;
+}
+
+.proofText p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+}
+
+.proofText strong {
+  color: white;
+}
+
+/* ---- Stats Row ---- */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 720px;
+  margin-top: 8px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: background 0.3s ease;
+}
+
+.statItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.statNum {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: white;
+  font-family: var(--font-display);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* ---- Scroll Indicator ---- */
+.scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  z-index: 5;
+  animation: fadeInUp 1s ease 1s both;
+}
+
+.scrollMouse {
+  width: 22px;
+  height: 36px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.scrollDot {
+  width: 3px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(8px); opacity: 0.3; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 0 60px;
+  }
+
+  .floatingBadge {
+    display: none;
+  }
+
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    width: 100%;
+  }
+
+  .socialProof {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .proofText {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statNum {
+    font-size: 1.3rem;
+  }
+}

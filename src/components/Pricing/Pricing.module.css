@@ -1,0 +1,354 @@
+.pricing {
+  background: linear-gradient(135deg, #F8F9FF 0%, #EEF0FF 100%);
+}
+
+/* ---- Class Label Pill ---- */
+.classLabel {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+/* ---- Plans Grid ---- */
+.plansGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+/* ---- Plan Card ---- */
+.planCard {
+  position: relative;
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 36px 28px;
+  border: 2px solid var(--border);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.planCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.planCard.featured {
+  background: var(--gradient-primary);
+  border-color: transparent;
+  transform: scale(1.04);
+  box-shadow: var(--shadow-xl);
+}
+
+.planCard.featured:hover {
+  transform: scale(1.04) translateY(-4px);
+}
+
+.planBadge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: var(--secondary);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5px 18px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-orange);
+}
+
+.planCard.featured .planBadge {
+  background: var(--accent);
+  color: var(--dark);
+}
+
+.planTop {
+  text-align: center;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.planCard:not(.featured) .planTop {
+  border-bottom-color: var(--border);
+}
+
+.planIcon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.planName {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  margin-bottom: 4px;
+}
+
+.planCard.featured .planName {
+  color: white;
+}
+
+.planTagline {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.planCard.featured .planTagline {
+  color: rgba(255,255,255,0.75);
+}
+
+/* ---- Starting From ---- */
+.startingFrom {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.planCard.featured .startingFrom {
+  color: rgba(255,255,255,0.6);
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+}
+
+.planPrice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.currency {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.planCard.featured .currency {
+  color: rgba(255,255,255,0.8);
+}
+
+.amount {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  line-height: 1;
+}
+
+.planCard.featured .amount {
+  color: white;
+}
+
+.period {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.planCard.featured .period {
+  color: rgba(255,255,255,0.7);
+}
+
+/* ---- Features ---- */
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex: 1;
+}
+
+.feature {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.planCard.featured .feature {
+  color: rgba(255,255,255,0.85);
+}
+
+/* ---- CTA ---- */
+.planCta {
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.planCard.featured .planCta.btn-primary {
+  background: white !important;
+  color: var(--primary) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
+}
+
+.planCard.featured .planCta.btn-primary:hover {
+  background: var(--accent) !important;
+  color: var(--dark) !important;
+}
+
+/* ---- Free Trial ---- */
+.freeTrial {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 28px 36px;
+  border: 2px solid rgba(108, 62, 232, 0.15);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.freeTrialContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.freeTrialIcon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.freeTrialTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  margin-bottom: 4px;
+}
+
+.freeTrialText {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* ---- Bootcamps ---- */
+.bootcamps {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  border: 1px solid var(--border);
+}
+
+.bootcampTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.bootcampGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.bootcampCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--light);
+  transition: all 0.3s ease;
+}
+
+.bootcampCard:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-3px);
+}
+
+.bootcampIcon {
+  font-size: 2rem;
+}
+
+.bootcampName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+}
+
+.bootcampDuration {
+  font-size: 0.78rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.bootcampDesc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.bootcampPrice {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--secondary);
+  font-family: var(--font-display);
+  margin-top: 4px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .plansGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .planCard.featured {
+    transform: none;
+  }
+
+  .bootcampGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .freeTrial {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .freeTrialContent {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .bootcamps {
+    padding: 24px;
+  }
+}
