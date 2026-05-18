@@ -7,7 +7,7 @@ export default function robots() {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://www.LumiSkill.com/sitemap.xml',
-    host: 'https://www.LumiSkill.com',
+    sitemap: 'https://www.lumiskill.com/sitemap.xml',
+    host: 'https://www.lumiskill.com',
   };
 }

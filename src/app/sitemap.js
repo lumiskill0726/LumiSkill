@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = 'https://www.LumiSkill.com';
+  const baseUrl = 'https://www.lumiskill.com';
   const lastModified = new Date().toISOString();
 
   return [
@@ -26,6 +26,24 @@ export default function sitemap() {
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/refund`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.4,
     },
   ];
 }

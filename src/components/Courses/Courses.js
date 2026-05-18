@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 import styles from './Courses.module.css';
 
@@ -152,6 +153,7 @@ const FullStackIcon = () => (
 const courses = [
   {
     id: 1,
+    slug: 'java-basics',
     IconComponent: JavaBasicsIcon,
     gradient: 'linear-gradient(135deg, #1e1e2e 0%, #2a2a4a 100%)',
     badge: 'Beginner Friendly',
@@ -167,6 +169,7 @@ const courses = [
   },
   {
     id: 2,
+    slug: 'python-basics',
     IconComponent: PythonBasicsIcon,
     gradient: 'linear-gradient(135deg, #1a2a3a 0%, #2a3a1a 100%)',
     badge: 'Most Popular',
@@ -182,6 +185,7 @@ const courses = [
   },
   {
     id: 3,
+    slug: 'python-programming',
     IconComponent: PythonProgrammingIcon,
     gradient: 'linear-gradient(135deg, #0d0d1a 0%, #1a0d2e 100%)',
     badge: 'Best Seller',
@@ -197,6 +201,7 @@ const courses = [
   },
   {
     id: 4,
+    slug: 'web-development',
     IconComponent: WebDevIcon,
     gradient: 'linear-gradient(135deg, #0a0a1a 0%, #1a0a0a 100%)',
     badge: '🔥 Trending',
@@ -212,6 +217,7 @@ const courses = [
   },
   {
     id: 5,
+    slug: 'java-programming',
     IconComponent: JavaProgrammingIcon,
     gradient: 'linear-gradient(135deg, #1a1500 0%, #0a1a2a 100%)',
     badge: 'High Demand',
@@ -227,6 +233,7 @@ const courses = [
   },
   {
     id: 6,
+    slug: 'java-dsa',
     IconComponent: JavaDSAIcon,
     gradient: 'linear-gradient(135deg, #0a1a0a 0%, #0a0a2a 100%)',
     badge: 'Advanced',
@@ -242,6 +249,7 @@ const courses = [
   },
   {
     id: 7,
+    slug: 'ai-automation',
     IconComponent: AIAutomationIcon,
     gradient: 'linear-gradient(135deg, #0d0020 0%, #200010 100%)',
     badge: '🔥 Hot',
@@ -257,6 +265,7 @@ const courses = [
   },
   {
     id: 8,
+    slug: 'full-stack-web-dev',
     IconComponent: FullStackIcon,
     gradient: 'linear-gradient(135deg, #001a1a 0%, #00001a 100%)',
     badge: 'Career Ready',
@@ -272,7 +281,15 @@ const courses = [
   },
 ];
 
+const TABS = ['All Courses', 'Class 6–8', 'Class 9–10', 'Class 11–12'];
+
 export default function Courses() {
+  const [activeTab, setActiveTab] = useState('All Courses');
+
+  const filtered = activeTab === 'All Courses'
+    ? courses
+    : courses.filter((c) => c.subtitle === activeTab);
+
   return (
     <section className={`section ${styles.courses}`} id="courses">
       <div className="container">
@@ -289,10 +306,11 @@ export default function Courses() {
 
         {/* Class Filter Tabs */}
         <div className={styles.filterTabs}>
-          {['All Courses', 'Class 6–8', 'Class 9–10', 'Class 11–12'].map((tab) => (
+          {TABS.map((tab) => (
             <button
               key={tab}
-              className={`${styles.filterTab} ${tab === 'All Courses' ? styles.active : ''}`}
+              onClick={() => setActiveTab(tab)}
+              className={`${styles.filterTab} ${tab === activeTab ? styles.active : ''}`}
             >
               {tab}
             </button>
@@ -300,7 +318,7 @@ export default function Courses() {
         </div>
 
         <div className={styles.grid}>
-          {courses.map((course) => (
+          {filtered.map((course) => (
             <div key={course.id} className={styles.card}>
               {/* Card header */}
               <div className={styles.cardHeader} style={{ background: course.gradient }}>
@@ -344,8 +362,8 @@ export default function Courses() {
                   </div>
                 </div>
 
-                <Link href="/contact" className={`btn btn-primary ${styles.enroll}`}>
-                  Enroll Now
+                <Link href={`/courses/${course.slug}`} className={`btn btn-primary ${styles.enroll}`}>
+                  Enroll Now →
                 </Link>
               </div>
             </div>

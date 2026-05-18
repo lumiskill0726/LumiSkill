@@ -14,7 +14,7 @@ const company = [
   { label: 'About Us', href: '/about' },
   { label: 'Our Courses', href: '/courses' },
   { label: 'Pricing', href: '/#pricing' },
-  { label: 'Blog', href: '/blog' },
+  // { label: 'Blog', href: '/blog' },
   { label: 'School Partnerships', href: '/contact' },
   { label: 'Careers', href: '/careers' },
 ];
