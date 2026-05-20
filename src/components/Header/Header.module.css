@@ -34,8 +34,8 @@
 }
 
 .logoIcon {
-  width: 42px;
-  height: 42px;
+  width: 80px;
+  height: 64px;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
@@ -53,12 +53,18 @@
 }
 
 .logoText {
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 2rem;
+  font-weight: 900;
   color: var(--dark);
   font-family: var(--font-display);
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   transition: color 0.3s ease;
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .header:not(.scrolled) .logoText {

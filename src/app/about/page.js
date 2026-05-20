@@ -88,7 +88,7 @@ export default function AboutPage() {
               <div className={styles.missionCard}>
                 <div className={styles.missionCardIcon}>🎓</div>
                 <h3>Our Vision</h3>
-                <p>To become India&apos;s most trusted EdTech brand — a national AI education company, a teen startup incubator, and eventually an international learning platform.</p>
+                <p>To become India&apos;s most trusted EdTech brand — a national tech education company, a teen startup incubator, and eventually an international learning platform.</p>
               </div>
               <div className={styles.missionCard}>
                 <div className={styles.missionCardIcon}>💡</div>
@@ -98,7 +98,7 @@ export default function AboutPage() {
               <div className={styles.missionCard}>
                 <div className={styles.missionCardIcon}>🤝</div>
                 <h3>Our Promise</h3>
-                <p>7-day money-back guarantee. No lock-in. Cancel anytime. We&apos;re confident enough in our quality to offer this promise to every family.</p>
+                <p>7-day money-back guarantee. No lock-in. We&apos;re confident enough in our quality to offer this promise to every family.</p>
               </div>
             </div>
           </div>
