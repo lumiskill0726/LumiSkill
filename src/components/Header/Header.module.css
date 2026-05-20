@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 18px 0;
+  padding: 18px 10px;
   transition: all 0.4s ease;
   background: transparent;
 }
@@ -43,6 +43,16 @@
   justify-content: center;
   box-shadow: 0 4px 18px rgba(108, 62, 232, 0.55);
   flex-shrink: 0;
+  background-color: transparent;
+  transition: background-color 0.4s ease;
+}
+
+.logoIcon.scrolled{
+  background-color: var(--primary);
+}
+
+.logoIcon span {
+  color: white;
 }
 
 .logoIcon span {
@@ -247,7 +257,7 @@
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .nav {
     display: none;
   }

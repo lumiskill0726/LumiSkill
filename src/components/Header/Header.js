@@ -38,9 +38,9 @@ export default function Header() {
           className={styles.logo}
           onClick={() => setMenuOpen(false)}
         >
-          <div className={styles.logoIcon}>
+          <div className={`${styles.logoIcon} ${scrolled ? styles.scrolled : ""}`}>
             <Image
-              src="/logo.png"
+              src="/logo.jpg"
               alt="LumiSkill Logo"
               width={80}
               height={64}
