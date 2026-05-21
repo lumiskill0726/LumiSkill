@@ -40,11 +40,12 @@ export default function Header() {
         >
           <div className={`${styles.logoIcon} ${scrolled ? styles.scrolled : ""}`}>
             <Image
-              src="/logo.jpg"
+              src={scrolled ? "/logo-transparent.jpg" : "/logo-white.png"}
               alt="LumiSkill Logo"
               width={80}
               height={64}
               className={styles.logoImage}
+              style={{ width: '100%', height: 'auto' }}
               priority
             />
           </div>

@@ -41,15 +41,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 18px rgba(108, 62, 232, 0.55);
+  /* box-shadow: 0 4px 18px rgba(108, 62, 232, 0.55); */
   flex-shrink: 0;
   background-color: transparent;
   transition: background-color 0.4s ease;
+  background-color: transparent;
 }
 
-.logoIcon.scrolled{
+/* .logoIcon.scrolled{
   background-color: var(--primary);
-}
+} */
 
 .logoIcon span {
   color: white;
@@ -73,7 +74,7 @@
 
 .logoImage {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 }
 

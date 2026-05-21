@@ -56,6 +56,7 @@ export default function Footer() {
                     width={80}
                     height={64}
                     className={styles.logoImage}
+                    style={{ width: '100%', height: 'auto' }}
                     priority
                   />
                 </div>
