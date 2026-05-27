@@ -2,6 +2,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import VisitorModal from '@/components/VisitorModal/VisitorModal';
+import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -394,6 +396,8 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <ServiceWorkerRegistration />
+        <VisitorModal />
         <Header />
         <main>{children}</main>
         <Footer />

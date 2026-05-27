@@ -51,7 +51,7 @@ export default function Footer() {
               <Link href="/" className={styles.logo}>
                 <div className={styles.logoIcon}>
                   <Image
-                    src="/logo.jpg"
+                    src="/logo-white.png"
                     alt="LumiSkill Logo"
                     width={80}
                     height={64}
