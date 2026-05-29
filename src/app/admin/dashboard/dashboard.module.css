@@ -1,7 +1,7 @@
 .layout {
   display: flex;
   min-height: 100vh;
-  background: #f8f9fa;
+  background: #0f0f0f;
 }
 
 /* Loading State */
@@ -33,8 +33,8 @@
 /* Sidebar */
 .sidebar {
   width: 280px;
-  background: white;
-  border-right: 1px solid #e5e7eb;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+  border-right: 1px solid #2a2a2a;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -43,11 +43,12 @@
   bottom: 0;
   z-index: 1000;
   transition: transform 0.3s ease;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
 }
 
 .sidebarHeader {
-  padding: 24px 20px;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 5px 20px;
+  border-bottom: 1px solid #2a2a2a;
 }
 
 .logo {
@@ -56,14 +57,17 @@
   gap: 10px;
 }
 
-.logoIcon {
-  font-size: 2rem;
+.logoImage {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .logoText {
   font-size: 1.5rem;
   font-weight: 900;
-  color: var(--dark);
+  color: #ffffff;
   font-family: var(--font-display);
   letter-spacing: 1px;
 }
@@ -87,15 +91,15 @@
   gap: 12px;
   padding: 12px 16px;
   border-radius: 10px;
-  color: var(--text-secondary);
+  color: #9ca3af;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
 }
 
 .navItem:hover {
-  background: var(--light);
-  color: var(--dark);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 .navItemActive {
@@ -119,7 +123,7 @@
 /* Sidebar Footer */
 .sidebarFooter {
   padding: 20px;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid #2a2a2a;
 }
 
 .userInfo {
@@ -150,7 +154,7 @@
 .userName {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--dark);
+  color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -158,7 +162,7 @@
 
 .userRole {
   font-size: 0.75rem;
-  color: var(--text-light);
+  color: #9ca3af;
   text-transform: capitalize;
 }
 
@@ -189,9 +193,9 @@
 
 /* Top Bar */
 .topBar {
-  background: white;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 16px 24px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #2a2a2a;
+  padding: 18px 24px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -207,13 +211,13 @@
   font-size: 1.5rem;
   cursor: pointer;
   padding: 8px;
-  color: var(--dark);
+  color: #ffffff;
 }
 
 .pageTitle {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--dark);
+  color: #ffffff;
   font-family: var(--font-display);
 }
 
@@ -226,7 +230,7 @@
 
 .welcomeText {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: #9ca3af;
   font-weight: 500;
 }
 

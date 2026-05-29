@@ -19,6 +19,7 @@ self.addEventListener('push', (event) => {
     body: 'You have a new notification',
     icon: '/logo-white.png',
     badge: '/logo-white.png',
+    image: null,
     data: {
       url: '/',
     },
@@ -32,8 +33,9 @@ self.addEventListener('push', (event) => {
         body: data.body || notificationData.body,
         icon: data.icon || notificationData.icon,
         badge: data.badge || notificationData.badge,
+        image: data.image || null,
         data: {
-          url: data.url || notificationData.data.url,
+          url: data.url || data.data?.url || notificationData.data.url,
         },
       };
     } catch (e) {
@@ -41,16 +43,33 @@ self.addEventListener('push', (event) => {
     }
   }
 
+  const options = {
+    body: notificationData.body,
+    icon: notificationData.icon,
+    badge: notificationData.badge,
+    data: notificationData.data,
+    vibrate: [200, 100, 200],
+    tag: 'lumiskill-notification',
+    requireInteraction: false,
+    actions: [
+      {
+        action: 'open',
+        title: 'Open',
+      },
+      {
+        action: 'close',
+        title: 'Close',
+      },
+    ],
+  };
+
+  // Add image if provided
+  if (notificationData.image) {
+    options.image = notificationData.image;
+  }
+
   event.waitUntil(
-    self.registration.showNotification(notificationData.title, {
-      body: notificationData.body,
-      icon: notificationData.icon,
-      badge: notificationData.badge,
-      data: notificationData.data,
-      vibrate: [200, 100, 200],
-      tag: 'lumiskill-notification',
-      requireInteraction: false,
-    })
+    self.registration.showNotification(notificationData.title, options)
   );
 });
 

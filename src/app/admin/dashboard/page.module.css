@@ -38,19 +38,21 @@
 }
 
 .statCard {
-  background: white;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border: 1px solid #3a3a3a;
   border-radius: 16px;
   padding: 24px;
   display: flex;
   align-items: center;
   gap: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .statCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(108, 62, 232, 0.3);
+  border-color: var(--primary);
 }
 
 .statIcon {
@@ -86,7 +88,7 @@
 
 .statLabel {
   font-size: 0.875rem;
-  color: var(--text-secondary);
+  color: #9ca3af;
   margin-bottom: 4px;
   font-weight: 500;
 }
@@ -94,14 +96,14 @@
 .statValue {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--dark);
+  color: #ffffff;
   font-family: var(--font-display);
   margin-bottom: 4px;
 }
 
 .statChange {
   font-size: 0.8rem;
-  color: var(--text-light);
+  color: #6b7280;
 }
 
 /* Activity Grid */
@@ -113,10 +115,11 @@
 }
 
 .activityCard {
-  background: white;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border: 1px solid #3a3a3a;
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .activityHeader {
@@ -129,7 +132,7 @@
 .activityTitle {
   font-size: 1.125rem;
   font-weight: 700;
-  color: var(--dark);
+  color: #ffffff;
   font-family: var(--font-display);
 }
 
@@ -157,12 +160,14 @@
   gap: 12px;
   padding: 12px;
   border-radius: 10px;
-  background: var(--light);
-  transition: background 0.2s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
 }
 
 .activityItem:hover {
-  background: #e5e7eb;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(108, 62, 232, 0.5);
 }
 
 .activityAvatar {
@@ -187,7 +192,7 @@
 .activityName {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--dark);
+  color: #ffffff;
   margin-bottom: 2px;
   white-space: nowrap;
   overflow: hidden;
@@ -196,7 +201,7 @@
 
 .activityMeta {
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: #9ca3af;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -204,7 +209,7 @@
 
 .activityTime {
   font-size: 0.75rem;
-  color: var(--text-light);
+  color: #6b7280;
   flex-shrink: 0;
 }
 
@@ -252,7 +257,7 @@
 .sectionTitle {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--dark);
+  color: #ffffff;
   font-family: var(--font-display);
   margin-bottom: 16px;
 }
@@ -264,8 +269,8 @@
 }
 
 .actionCard {
-  background: white;
-  border: 2px solid #e5e7eb;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border: 1px solid #3a3a3a;
   border-radius: 12px;
   padding: 20px;
   display: flex;
@@ -273,15 +278,16 @@
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  color: var(--dark);
+  color: #ffffff;
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .actionCard:hover {
   border-color: var(--primary);
-  background: var(--light);
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 62, 232, 0.3);
 }
 
 .actionIcon {

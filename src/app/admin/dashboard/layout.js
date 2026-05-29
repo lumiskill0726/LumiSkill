@@ -55,8 +55,9 @@ export default function AdminLayout({ children }) {
 
   const navItems = [
     { href: "/admin/dashboard", label: "Dashboard", icon: "📊" },
-    { href: "/admin/visitors", label: "Visitors", icon: "👥" },
-    { href: "/admin/leads", label: "Leads", icon: "📝" },
+    { href: "/admin/dashboard/visitors", label: "Visitors", icon: "👥" },
+    { href: "/admin/dashboard/leads", label: "Leads", icon: "📝" },
+    { href: "/admin/dashboard/notifications", label: "Notifications", icon: "🔔" },
   ];
 
   return (
@@ -65,7 +66,11 @@ export default function AdminLayout({ children }) {
       <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ""}`}>
         <div className={styles.sidebarHeader}>
           <div className={styles.logo}>
-            <span className={styles.logoIcon}>🎓</span>
+            <img 
+              src="/logo-white.png" 
+              alt="LumiSkill" 
+              className={styles.logoImage}
+            />
             <span className={styles.logoText}>
               Lumi<span className={styles.logoAccent}>Skill</span>
             </span>

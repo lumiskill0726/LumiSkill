@@ -51,10 +51,17 @@ export default function AdminLogin() {
 
   return (
     <div className={styles.container}>
+      {/* Decorative Elements */}
+      <div className={styles.decorCircle1}></div>
+      <div className={styles.decorCircle2}></div>
+      <div className={styles.decorCircle3}></div>
+      
       <div className={styles.loginBox}>
         <div className={styles.header}>
           <div className={styles.logo}>
-            <span className={styles.logoIcon}>🎓</span>
+            <div className={styles.logoIconWrapper}>
+              <span className={styles.logoIcon}>🎓</span>
+            </div>
             <h1 className={styles.logoText}>
               Lumi<span className={styles.logoAccent}>Skill</span>
             </h1>
