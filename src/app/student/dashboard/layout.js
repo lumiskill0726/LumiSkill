@@ -4,10 +4,10 @@ import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import styles from "./dashboard.module.css";
 
-export default function AdminLayout({ children }) {
+export default function StudentLayout({ children }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [user, setUser] = useState(null);
+  const [student, setStudent] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -15,18 +15,18 @@ export default function AdminLayout({ children }) {
     // Verify authentication
     const verifyAuth = async () => {
       try {
-        const response = await fetch("/api/admin/verify");
+        const response = await fetch("/api/student/auth/verify");
         const data = await response.json();
 
         if (!data.authenticated) {
-          router.push("/admin/login");
+          router.push("/student/login");
           return;
         }
 
-        setUser(data.user);
+        setStudent(data.student);
       } catch (error) {
         console.error("Auth verification failed:", error);
-        router.push("/admin/login");
+        router.push("/student/login");
       } finally {
         setIsLoading(false);
       }
@@ -37,8 +37,8 @@ export default function AdminLayout({ children }) {
 
   const handleLogout = async () => {
     try {
-      await fetch("/api/admin/logout", { method: "POST" });
-      router.push("/admin/login");
+      await fetch("/api/student/auth/logout", { method: "POST" });
+      router.push("/student/login");
     } catch (error) {
       console.error("Logout failed:", error);
     }
@@ -54,28 +54,28 @@ export default function AdminLayout({ children }) {
   }
 
   const navItems = [
-    { href: "/admin/dashboard", label: "Dashboard", icon: "📊" },
-    { href: "/admin/dashboard/visitors", label: "Visitors", icon: "👥" },
-    { href: "/admin/dashboard/leads", label: "Leads", icon: "📝" },
-    { href: "/admin/dashboard/students", label: "Students", icon: "🎓" },
-    { href: "/admin/dashboard/notices", label: "Notices", icon: "📢" },
-    { href: "/admin/dashboard/progress", label: "Progress Reports", icon: "📈" },
-    { href: "/admin/dashboard/notifications", label: "Notifications", icon: "🔔" },
+    { href: "/student/dashboard", label: "Dashboard", icon: "📊" },
+    { href: "/student/dashboard/courses", label: "My Courses", icon: "📚" },
+    { href: "/student/dashboard/notices", label: "Notices", icon: "📢" },
+    { href: "/student/dashboard/progress", label: "Progress Reports", icon: "📈" },
+    { href: "/student/dashboard/syllabus", label: "Syllabus", icon: "📝" },
+    { href: "/student/dashboard/attendance", label: "Attendance", icon: "✅" },
+    { href: "/student/dashboard/assignments", label: "Assignments", icon: "📋" },
   ];
 
   // Get breadcrumbs
   const getBreadcrumbs = () => {
     const paths = pathname.split('/').filter(Boolean);
-    const breadcrumbs = [{ label: 'Home', href: '/admin/dashboard' }];
+    const breadcrumbs = [{ label: 'Home', href: '/student/dashboard' }];
     
     let currentPath = '';
     paths.forEach((path, index) => {
-      if (path !== 'admin' && path !== 'dashboard') {
+      if (path !== 'student' && path !== 'dashboard') {
         currentPath += `/${path}`;
         const navItem = navItems.find(item => item.href.includes(path));
         breadcrumbs.push({
           label: navItem?.label || path.charAt(0).toUpperCase() + path.slice(1),
-          href: `/admin/dashboard${currentPath}`
+          href: `/student/dashboard${currentPath}`
         });
       }
     });
@@ -102,6 +102,7 @@ export default function AdminLayout({ children }) {
               Lumi<span className={styles.logoAccent}>Skill</span>
             </span>
           </div>
+          {/* <p className={styles.portalLabel}>Student Portal</p> */}
         </div>
 
         <nav className={styles.nav}>
@@ -123,11 +124,11 @@ export default function AdminLayout({ children }) {
         <div className={styles.sidebarFooter}>
           <div className={styles.userInfo}>
             <div className={styles.userAvatar}>
-              {user?.name?.charAt(0).toUpperCase() || user?.email?.charAt(0).toUpperCase()}
+              {student?.name?.charAt(0).toUpperCase()}
             </div>
             <div className={styles.userDetails}>
-              <p className={styles.userName}>{user?.name || 'Admin'}</p>
-              <p className={styles.userRole}>{user?.email}</p>
+              <p className={styles.userName}>{student?.name}</p>
+              <p className={styles.userRole}>{student?.email}</p>
             </div>
           </div>
           <button onClick={handleLogout} className={styles.logoutBtn}>
@@ -147,10 +148,10 @@ export default function AdminLayout({ children }) {
             ☰
           </button>
           <h1 className={styles.pageTitle}>
-            {navItems.find((item) => item.href === pathname)?.label || "Admin"}
+            {navItems.find((item) => item.href === pathname)?.label || "Dashboard"}
           </h1>
           <div className={styles.topBarActions}>
-            <span className={styles.welcomeText}>Welcome, Admin</span>
+            <span className={styles.welcomeText}>Welcome, {student?.name}</span>
           </div>
         </header>
 

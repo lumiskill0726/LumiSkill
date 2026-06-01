@@ -5,13 +5,13 @@ import CTA from "@/components/CTA/CTA";
 export const metadata = {
   title: "All Courses – Python, Web Dev, AI, Java | LumiSkill",
   description:
-    "Explore all LumiSkill coding courses for Class 6–12: Python, Web Development, AI & Automation, Java & DSA, App Development, and Logic Building. Live classes, real projects, expert mentors.",
+    "Explore all LumiSkill coding courses for students of all levels: Python, Web Development, AI & Automation, Java & DSA, App Development, and Logic Building. Live classes, real projects, expert mentors.",
   alternates: { canonical: 'https://www.lumiskill.com/courses' },
 };
 
 const curriculum = [
   {
-    class: "Class 6–8",
+    class: "Beginner",
     color: "#22C55E",
     bg: "rgba(34, 197, 94, 0.08)",
     icon: "🎮",
@@ -39,7 +39,7 @@ const curriculum = [
       "Build their first Java & Python programs and develop logical thinking",
   },
   {
-    class: "Class 9–10",
+    class: "Intermediate",
     color: "#6C3EE8",
     bg: "rgba(108, 62, 232, 0.08)",
     icon: "💻",
@@ -74,7 +74,7 @@ const curriculum = [
     outcome: "Build complete websites and real Java & Python projects",
   },
   {
-    class: "Class 11–12",
+    class: "Advanced",
     color: "#FF6B35",
     bg: "rgba(255, 107, 53, 0.08)",
     icon: "🚀",
@@ -163,17 +163,17 @@ export default function CoursesPage() {
           <h1 className={styles.heroTitle}>
             Structured Learning for
             <br />
-            <span className={styles.heroGradient}>Every Class, Every Goal</span>
+            <span className={styles.heroGradient}>Every Level, Every Goal</span>
           </h1>
           <p className={styles.heroSubtitle}>
             Courses designed by IIT graduates and industry experts.
-            Age-appropriate, project-based, and delivered live by passionate
+            Skill-based, project-focused, and delivered live by passionate
             mentors.
           </p>
           <div className={styles.heroBadges}>
             <span>🎓 8 Courses</span>
             <span>📅 4–8 Months</span>
-            <span>🏫 Class 6–12</span>
+            <span>🏫 All Levels</span>
             <span>💰 From ₹4,999</span>
           </div>
         </div>
@@ -200,11 +200,11 @@ export default function CoursesPage() {
           <div className="section-header">
             <div className="section-tag">🎓 Curriculum</div>
             <h2 className="section-title">
-              Courses by <span>Class Group</span>
+              Courses by <span>Skill Level</span>
             </h2>
             <p className="section-subtitle">
-              Each program is specifically tailored to the age group, learning
-              capacity, and career goals of your child.
+              Each program is specifically tailored to the skill level, learning
+              capacity, and career goals of every student.
             </p>
           </div>
 

@@ -1,0 +1,362 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+  color: #9ca3af;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(108, 62, 232, 0.2);
+  border-top-color: #6C3EE8;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.statCard {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.statCardOrange { border-left: 4px solid #F59E0B; }
+.statCardBlue { border-left: 4px solid #3B82F6; }
+.statCardGreen { border-left: 4px solid #10B981; }
+.statCardRed { border-left: 4px solid #EF4444; }
+
+.statIcon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.statContent {
+  flex: 1;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+  margin: 0;
+}
+
+.statChange {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 4px 0 0 0;
+}
+
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 10px 20px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterBtn:hover {
+  background: #2a2a2a;
+  color: white;
+}
+
+.filterBtn.active {
+  background: #6C3EE8;
+  border-color: #6C3EE8;
+  color: white;
+}
+
+.assignmentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.assignmentCard {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.assignmentCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.assignmentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.assignmentTitle {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.assignmentTitle h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.statusBadge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.statusBadge.pending {
+  background: rgba(245, 158, 11, 0.2);
+  color: #F59E0B;
+}
+
+.statusBadge.submitted {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3B82F6;
+}
+
+.statusBadge.graded {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10B981;
+}
+
+.statusBadge.late {
+  background: rgba(239, 68, 68, 0.2);
+  color: #EF4444;
+}
+
+.dueDate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.dueLabel {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.dueValue {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+}
+
+.dueValue.overdue {
+  color: #EF4444;
+}
+
+.daysLeft {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.description {
+  font-size: 0.875rem;
+  color: #d1d5db;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.assignmentFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #2a2a2a;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.assignmentMeta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.submitBtn,
+.viewBtn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.submitBtn {
+  background: #6C3EE8;
+  color: white;
+}
+
+.submitBtn:hover {
+  background: #764ba2;
+  transform: translateY(-2px);
+}
+
+.viewBtn {
+  background: #1a1a1a;
+  border: 1px solid #6C3EE8;
+  color: #6C3EE8;
+}
+
+.viewBtn:hover {
+  background: rgba(108, 62, 232, 0.1);
+}
+
+.feedback {
+  margin-top: 16px;
+  padding: 16px;
+  background: rgba(108, 62, 232, 0.1);
+  border-left: 3px solid #6C3EE8;
+  border-radius: 8px;
+}
+
+.feedbackTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 8px 0;
+}
+
+.feedbackText {
+  font-size: 0.875rem;
+  color: #d1d5db;
+  line-height: 1.6;
+  margin: 0 0 8px 0;
+}
+
+.gradedBy {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 80px 20px;
+  color: #6b7280;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.emptyState h3 {
+  font-size: 1.5rem;
+  color: white;
+  margin: 0 0 8px 0;
+}
+
+.emptyState p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .assignmentHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dueDate {
+    align-items: flex-start;
+  }
+
+  .assignmentFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

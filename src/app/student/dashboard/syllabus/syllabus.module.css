@@ -1,0 +1,290 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+  color: #9ca3af;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(108, 62, 232, 0.2);
+  border-top-color: #6C3EE8;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.courseInfo {
+  text-align: right;
+}
+
+.courseName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 4px 0;
+}
+
+.courseDuration {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.monthCard {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.monthCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.monthHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.monthNumber {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.monthLabel {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.monthValue {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+}
+
+.monthInfo {
+  flex: 1;
+}
+
+.monthTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 8px 0;
+}
+
+.monthMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.statusBadge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.statusBadge.completed {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10B981;
+}
+
+.statusBadge.in_progress {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3B82F6;
+}
+
+.statusBadge.not_started {
+  background: rgba(156, 163, 175, 0.2);
+  color: #9ca3af;
+}
+
+.topicsCount {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.progressCircle {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.progressCircle svg {
+  width: 100%;
+  height: 100%;
+}
+
+.topicsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.topicItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.topicItem:hover {
+  border-color: #6C3EE8;
+}
+
+.topicItem.completed {
+  background: rgba(16, 185, 129, 0.05);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.topicCheckbox {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.topicName {
+  font-size: 0.875rem;
+  color: #d1d5db;
+  flex: 1;
+}
+
+.topicItem.completed .topicName {
+  color: #10B981;
+}
+
+.monthFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #2a2a2a;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.dateInfo {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 80px 20px;
+  color: #6b7280;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.emptyState h3 {
+  font-size: 1.5rem;
+  color: white;
+  margin: 0 0 8px 0;
+}
+
+.emptyState p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .courseInfo {
+    text-align: left;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .monthHeader {
+    flex-wrap: wrap;
+  }
+
+  .progressCircle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .topicsList {
+    grid-template-columns: 1fr;
+  }
+
+  .monthNumber {
+    min-width: 60px;
+    padding: 12px;
+  }
+
+  .monthValue {
+    font-size: 1.5rem;
+  }
+}

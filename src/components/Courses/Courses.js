@@ -159,7 +159,7 @@ const courses = [
     badge: 'Beginner Friendly',
     badgeType: 'fun',
     title: 'Java Basics',
-    subtitle: 'Class 6–8',
+    subtitle: 'Beginner',
     description: 'Start your coding journey with Java — learn syntax, variables, and simple programs. A perfect first step into programming.',
     skills: ['Java Syntax', 'Variables', 'Loops', 'Simple Programs'],
     duration: '4 Months',
@@ -175,7 +175,7 @@ const courses = [
     badge: 'Most Popular',
     badgeType: 'popular',
     title: 'Python Basics',
-    subtitle: 'Class 6–8',
+    subtitle: 'Beginner',
     description: "Learn Python — the world's most beginner-friendly language. Build simple programs and develop logical thinking skills.",
     skills: ['Variables & Loops', 'Functions', 'Logic Building', 'Mini Programs'],
     duration: '4 Months',
@@ -191,7 +191,7 @@ const courses = [
     badge: 'Best Seller',
     badgeType: 'bestseller',
     title: 'Python Programming',
-    subtitle: 'Class 9–10',
+    subtitle: 'Intermediate',
     description: 'Advance your Python skills with OOP, functions, and real mini-projects. Build practical programs from scratch.',
     skills: ['OOP', 'Functions', 'File Handling', 'Mini Projects'],
     duration: '6 Months',
@@ -207,7 +207,7 @@ const courses = [
     badge: '🔥 Trending',
     badgeType: 'trending',
     title: 'Web Development',
-    subtitle: 'Class 9–10',
+    subtitle: 'Intermediate',
     description: 'Build stunning websites from scratch. Learn HTML5, CSS3 and JavaScript to create real projects you can show off to the world.',
     skills: ['HTML5 & CSS3', 'JavaScript', 'Responsive Design', 'Real Projects'],
     duration: '6 Months',
@@ -223,7 +223,7 @@ const courses = [
     badge: 'High Demand',
     badgeType: 'advanced',
     title: 'Java Programming',
-    subtitle: 'Class 9–10',
+    subtitle: 'Intermediate',
     description: 'Master Java with OOP, functions, and hands-on mini-projects. Build a strong foundation for advanced courses.',
     skills: ['OOP Concepts', 'Functions', 'Collections', 'Mini Projects'],
     duration: '6 Months',
@@ -239,7 +239,7 @@ const courses = [
     badge: 'Advanced',
     badgeType: 'advanced',
     title: 'Java & DSA',
-    subtitle: 'Class 11–12',
+    subtitle: 'Advanced',
     description: 'Master Java and Data Structures & Algorithms — the foundation for cracking top coding interviews and building enterprise apps.',
     skills: ['Core Java', 'Data Structures', 'Algorithms', 'Interview Prep'],
     duration: '8 Months',
@@ -255,7 +255,7 @@ const courses = [
     badge: '🔥 Hot',
     badgeType: 'trending',
     title: 'AI & Automation',
-    subtitle: 'Class 11–12',
+    subtitle: 'Advanced',
     description: 'Step into the future! Build AI-powered apps, learn machine learning basics, and automate real-world tasks with Python & APIs.',
     skills: ['AI Concepts', 'ML Basics', 'API Integration', 'AI Projects'],
     duration: '6 Months',
@@ -271,7 +271,7 @@ const courses = [
     badge: 'Career Ready',
     badgeType: 'new',
     title: 'Full Stack Web Dev',
-    subtitle: 'Class 11–12',
+    subtitle: 'Advanced',
     description: 'Become a full stack developer — build complete web applications with React, Node.js, and databases for a career-ready portfolio.',
     skills: ['React.js', 'Node.js', 'Databases', 'Full Projects'],
     duration: '8 Months',
@@ -281,7 +281,7 @@ const courses = [
   },
 ];
 
-const TABS = ['All Courses', 'Class 6–8', 'Class 9–10', 'Class 11–12'];
+const TABS = ['All Courses', 'Beginner', 'Intermediate', 'Advanced'];
 
 export default function Courses() {
   const [activeTab, setActiveTab] = useState('All Courses');

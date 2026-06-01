@@ -7,7 +7,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-producti
 export async function GET() {
   try {
     const cookieStore = await cookies();
-    const token = cookieStore.get('admin_token');
+    const token = cookieStore.get('student_token');
 
     if (!token) {
       return NextResponse.json(
@@ -22,11 +22,10 @@ export async function GET() {
       return NextResponse.json(
         {
           authenticated: true,
-          user: {
-            id: decoded.id,
-            name: decoded.name || decoded.email?.split('@')[0],
+          student: {
+            id: decoded.studentId,
             email: decoded.email,
-            role: decoded.role,
+            name: decoded.name,
           },
         },
         { status: 200 }
@@ -38,7 +37,7 @@ export async function GET() {
       );
     }
   } catch (error) {
-    console.error('Error in admin verify:', error);
+    console.error('Error in student verify:', error);
     return NextResponse.json(
       { error: 'Internal server error', authenticated: false },
       { status: 500 }

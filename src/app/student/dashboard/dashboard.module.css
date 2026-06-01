@@ -12,14 +12,14 @@
   justify-content: center;
   min-height: 100vh;
   gap: 16px;
-  color: var(--text-secondary);
+  color: #9ca3af;
 }
 
 .spinner {
   width: 40px;
   height: 40px;
   border: 3px solid rgba(108, 62, 232, 0.2);
-  border-top-color: var(--primary);
+  border-top-color: #6C3EE8;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -70,14 +70,22 @@
 
 .logoText {
   font-size: 1.5rem;
-  font-weight: 900;
+  font-weight: 700;
   color: #ffffff;
-  font-family: var(--font-display);
   letter-spacing: 1px;
 }
 
 .logoAccent {
-  color: var(--primary);
+  color: #6C3EE8;
+}
+
+.portalLabel {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin: 0;
+  padding-left: 42px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Navigation */
@@ -87,6 +95,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  overflow-y: auto;
 }
 
 .navItem {
@@ -141,7 +150,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -162,12 +171,14 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 0;
 }
 
 .userRole {
   font-size: 0.75rem;
   color: #9ca3af;
   text-transform: capitalize;
+  margin: 0;
 }
 
 .logoutBtn {
@@ -222,7 +233,6 @@
   font-size: 1.5rem;
   font-weight: 800;
   color: #ffffff;
-  font-family: var(--font-display);
 }
 
 .topBarActions {
@@ -246,7 +256,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.875rem;
+  flex-wrap: wrap;
 }
 
 .breadcrumbItem {
@@ -255,14 +265,10 @@
   gap: 8px;
 }
 
-.breadcrumbSeparator {
-  color: #6b7280;
-  font-weight: 400;
-}
-
 .breadcrumbLink {
   color: #9ca3af;
   text-decoration: none;
+  font-size: 0.875rem;
   transition: color 0.2s ease;
 }
 
@@ -270,8 +276,14 @@
   color: #6C3EE8;
 }
 
+.breadcrumbSeparator {
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
 .breadcrumbCurrent {
-  color: white;
+  color: #ffffff;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 
@@ -279,6 +291,7 @@
 .content {
   flex: 1;
   padding: 32px 24px;
+  background: #0f0f0f;
 }
 
 /* Overlay for mobile */
@@ -323,6 +336,10 @@
 
 @media (max-width: 640px) {
   .topBar {
+    padding: 12px 16px;
+  }
+
+  .breadcrumbs {
     padding: 12px 16px;
   }
 
