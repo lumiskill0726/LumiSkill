@@ -73,13 +73,13 @@ export default function Footer() {
 
               <div className={styles.contact}>
                 <a
-                  href="mailto:hello@LumiSkill.com"
+                  href="mailto:info@lumiskill.com"
                   className={styles.contactItem}
                 >
-                  📧 hello@LumiSkill.com
+                  📧 info@lumiskill.com
                 </a>
-                <a href="tel:+919999999999" className={styles.contactItem}>
-                  📞 +91-99999-99999
+                <a href="tel:+917021217553" className={styles.contactItem}>
+                  📞 +91-70212-17553
                 </a>
                 <div className={styles.contactItem}>
                   📍 Online — Teaching Across India
@@ -88,7 +88,7 @@ export default function Footer() {
 
               <div className={styles.socials}>
                 <a
-                  href="https://instagram.com/LumiSkill"
+                  href="https://www.instagram.com/lumi.skill?igsh=N3V4OWpvamNhdW44"
                   target="_blank"
                   rel="noreferrer"
                   className={styles.social}
@@ -136,7 +136,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://wa.me/919999999999"
+                  href="https://wa.me/917021217553"
                   target="_blank"
                   rel="noreferrer"
                   className={styles.social}

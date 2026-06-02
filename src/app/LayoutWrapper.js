@@ -11,16 +11,17 @@ export default function LayoutWrapper({ children }) {
 
   const isAdminRoute = pathname.startsWith("/admin");
   const isStudentDashboard = pathname.startsWith("/student/dashboard");
+  const isStudentLogin = pathname === "/student/login";
 
   return (
     <>
-      {!isAdminRoute && !isStudentDashboard && <ServiceWorkerRegistration />}
-      {!isAdminRoute && !isStudentDashboard && <VisitorModal />}
-      {!isAdminRoute && !isStudentDashboard && <Header />}
+      {!isAdminRoute && !isStudentDashboard && !isStudentLogin && <ServiceWorkerRegistration />}
+      {!isAdminRoute && !isStudentDashboard && !isStudentLogin && <VisitorModal />}
+      {!isAdminRoute && !isStudentDashboard && !isStudentLogin && <Header />}
       
       <main>{children}</main>
       
-      {!isAdminRoute && !isStudentDashboard && <Footer />}
+      {!isAdminRoute && !isStudentDashboard && !isStudentLogin && <Footer />}
     </>
   );
 }
