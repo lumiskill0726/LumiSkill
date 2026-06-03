@@ -7,9 +7,10 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(4px);
-  z-index: 9999;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,12 +27,32 @@
 .modal {
   background: white;
   border-radius: 20px;
-  padding: 36px 32px;
+  padding: 40px 36px;
   width: 100%;
-  max-width: 440px;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
   position: relative;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
   animation: slideUp 0.25s ease;
+}
+
+/* Hide scrollbar but keep functionality */
+.modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
 }
 
 @keyframes slideUp {
@@ -94,30 +115,31 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
 }
 
 .label {
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #374151;
 }
 
-.input {
-  padding: 11px 14px;
-  border: 1.5px solid #e5e7eb;
-  border-radius: 10px;
-  font-size: 0.95rem;
+.input, .input select {
+  padding: 13px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
   color: #111827;
   outline: none;
-  transition: border-color 0.2s;
+  transition: all 0.2s;
   font-family: inherit;
+  background: white;
 }
 
 .input:focus {
@@ -140,9 +162,11 @@
 .submitBtn {
   width: 100%;
   justify-content: center;
-  padding: 14px;
-  font-size: 1rem;
-  margin-top: 4px;
+  padding: 16px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-top: 8px;
+  border-radius: 12px;
 }
 
 .submitBtn:disabled {
@@ -154,22 +178,26 @@
 .trust {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
-  margin-top: 4px;
+  margin-top: 12px;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 10px;
 }
 
 .trust span {
-  font-size: 0.73rem;
+  font-size: 0.8rem;
   color: #6b7280;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .refundNote {
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #9ca3af;
-  margin: 0;
+  margin: 8px 0 0 0;
+  line-height: 1.5;
 }
 
 .refundNote a {

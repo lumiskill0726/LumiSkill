@@ -14,8 +14,7 @@ export default function AdminNoticesPage() {
     message: "",
     notice_type: "general",
     target_audience: "all",
-    target_course: "",
-    expiry_date: ""
+    target_course: ""
   });
 
   useEffect(() => {
@@ -81,8 +80,7 @@ export default function AdminNoticesPage() {
       message: notice.message,
       notice_type: notice.notice_type,
       target_audience: notice.target_audience,
-      target_course: notice.target_course || "",
-      expiry_date: notice.expiry_date ? notice.expiry_date.split('T')[0] : ""
+      target_course: notice.target_course || ""
     });
     setShowModal(true);
   };
@@ -116,8 +114,7 @@ export default function AdminNoticesPage() {
       message: "",
       notice_type: "general",
       target_audience: "all",
-      target_course: "",
-      expiry_date: ""
+      target_course: ""
     });
   };
 
@@ -283,11 +280,6 @@ export default function AdminNoticesPage() {
                 </div>
               </div>
               <p className={styles.noticeMessage}>{notice.message}</p>
-              {notice.expiry_date && (
-                <p className={styles.expiryText}>
-                  Expires: {new Date(notice.expiry_date).toLocaleDateString()}
-                </p>
-              )}
             </div>
           ))}
         </div>
@@ -399,18 +391,6 @@ export default function AdminNoticesPage() {
                   </select>
                 </div>
               )}
-
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Expiry Date (Optional)</label>
-                <input
-                  type="date"
-                  value={formData.expiry_date}
-                  onChange={(e) =>
-                    setFormData({ ...formData, expiry_date: e.target.value })
-                  }
-                  className={styles.formInput}
-                />
-              </div>
 
               <div className={styles.formActions}>
                 <button

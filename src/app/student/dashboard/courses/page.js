@@ -67,7 +67,7 @@ export default function CoursesPage() {
                     <div className={styles.courseMeta}>
                       <span className={styles.courseLevel}>{enrollment.course_level}</span>
                       <span className={styles.courseDuration}>
-                        {enrollment.course_duration_months} Months
+                        6 Months
                       </span>
                       <span className={`${styles.statusBadge} ${styles[enrollment.status]}`}>
                         {enrollment.status}
@@ -83,7 +83,7 @@ export default function CoursesPage() {
                       <div>
                         <p className={styles.statLabel}>Start Date</p>
                         <p className={styles.statValue}>
-                          {new Date(enrollment.start_date).toLocaleDateString('en-US', {
+                          {new Date(enrollment.enrollment_date).toLocaleDateString('en-US', {
                             month: 'short',
                             day: 'numeric',
                             year: 'numeric'

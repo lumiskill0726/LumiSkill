@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 
 // Change this to your desired admin password
-const password = 'student123';
+const password = 'lumiskillAdmin123!'; // Replace with your desired password
 
 // Generate hash
 const hash = bcrypt.hashSync(password, 10);

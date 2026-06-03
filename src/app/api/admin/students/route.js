@@ -7,7 +7,7 @@ import jwt from 'jsonwebtoken';
 export async function GET(request) {
   try {
     // Verify admin authentication
-    const cookieStore = cookies();
+    const cookieStore = await cookies();
     const token = cookieStore.get('admin_token')?.value;
     
     if (!token) {
@@ -103,7 +103,7 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     // Verify admin authentication
-    const cookieStore = cookies();
+    const cookieStore = await cookies();
     const token = cookieStore.get('admin_token')?.value;
     
     if (!token) {

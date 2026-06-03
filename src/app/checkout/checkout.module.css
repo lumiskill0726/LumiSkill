@@ -1,0 +1,246 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  padding: 60px 20px;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #9ca3af;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.content {
+  display: grid;
+  gap: 40px;
+}
+
+/* Course Selection */
+.courseSection {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.courseCard {
+  background: #0f0f0f;
+  border: 2px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.courseCard:hover {
+  border-color: #6C3EE8;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(108, 62, 232, 0.2);
+}
+
+.courseCard.selected {
+  border-color: #6C3EE8;
+  background: linear-gradient(135deg, rgba(108, 62, 232, 0.1) 0%, rgba(108, 62, 232, 0.05) 100%);
+  box-shadow: 0 8px 24px rgba(108, 62, 232, 0.3);
+}
+
+.courseName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.courseDuration {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin-bottom: 12px;
+}
+
+.coursePrice {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #6C3EE8;
+  margin-bottom: 16px;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featuresList li {
+  font-size: 0.9rem;
+  color: #d1d5db;
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+/* Form Section */
+.formSection {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.formGroup {
+  margin-bottom: 24px;
+}
+
+.label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #d1d5db;
+  margin-bottom: 8px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #6C3EE8;
+  box-shadow: 0 0 0 3px rgba(108, 62, 232, 0.1);
+}
+
+.input::placeholder {
+  color: #6b7280;
+}
+
+/* Order Summary */
+.summary {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.summaryTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #2a2a2a;
+  color: #d1d5db;
+  font-size: 0.95rem;
+}
+
+.summaryRow:last-child {
+  border-bottom: none;
+}
+
+.summaryRow.total {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  padding-top: 16px;
+  margin-top: 8px;
+  border-top: 2px solid #6C3EE8;
+}
+
+.summaryRow.total span:last-child {
+  color: #6C3EE8;
+}
+
+/* Payment Button */
+.payBtn {
+  width: 100%;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(108, 62, 232, 0.4);
+}
+
+.payBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(108, 62, 232, 0.5);
+}
+
+.payBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secureText {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-top: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .courseGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .courseSection,
+  .formSection {
+    padding: 24px;
+  }
+
+  .summary {
+    padding: 20px;
+  }
+}
