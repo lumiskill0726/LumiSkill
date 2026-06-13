@@ -68,7 +68,7 @@ export default function CTA() {
           <div className={styles.funnelArrow}>→</div>
           <div className={styles.funnelStep}>
             <div className={styles.funnelNum}>2</div>
-            <div className={styles.funnelLabel}>Starter Course ₹4999</div>
+            <div className={styles.funnelLabel}>Starter Course ₹8,999</div>
           </div>
           <div className={styles.funnelArrow}>→</div>
           <div className={styles.funnelStep}>

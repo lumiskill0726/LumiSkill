@@ -61,7 +61,7 @@ const features = [
     icon: '💰',
     title: 'Affordable Pricing',
     description:
-      'World-class education at prices accessible to every Indian family. Starting at just ₹999 with flexible payment plans.',
+      'World-class education at prices accessible to every Indian family. Starting at just ₹8999 with flexible payment plans.',
     color: '#8B5CF6',
     bg: 'rgba(139, 92, 246, 0.08)',
   },

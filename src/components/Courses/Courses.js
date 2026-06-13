@@ -196,7 +196,7 @@ const courses = [
     skills: ['OOP', 'Functions', 'File Handling', 'Mini Projects'],
     duration: '6 Months',
     level: 'Beginner–Intermediate',
-    price: '₹8,999',
+    price: '₹11,999',
     students: '800+',
   },
   {
@@ -212,7 +212,7 @@ const courses = [
     skills: ['HTML5 & CSS3', 'JavaScript', 'Responsive Design', 'Real Projects'],
     duration: '6 Months',
     level: 'Beginner–Intermediate',
-    price: '₹12,999',
+    price: '₹14,999',
     students: '650+',
   },
   {
@@ -260,7 +260,7 @@ const courses = [
     skills: ['AI Concepts', 'ML Basics', 'API Integration', 'AI Projects'],
     duration: '6 Months',
     level: 'Intermediate',
-    price: '₹11,999',
+    price: '₹12,999',
     students: '400+',
   },
   {
