@@ -49,11 +49,8 @@ export default function CoursesPage() {
       {enrollments.length > 0 ? (
         <div className={styles.coursesList}>
           {enrollments.map((enrollment) => {
-            const endDate = new Date(enrollment.end_date);
-            const today = new Date();
-            const daysLeft = Math.ceil((endDate - today) / (1000 * 60 * 60 * 24));
-            const monthsLeft = Math.ceil(daysLeft / 30);
-            const isExpired = daysLeft < 0;
+            const isExpired = enrollment.is_expired;
+            const monthsLeft = enrollment.months_left;
 
             return (
               <div key={enrollment.id} className={styles.courseCard}>
@@ -67,7 +64,7 @@ export default function CoursesPage() {
                     <div className={styles.courseMeta}>
                       <span className={styles.courseLevel}>{enrollment.course_level}</span>
                       <span className={styles.courseDuration}>
-                        6 Months
+                        {enrollment.course_duration_months} Months
                       </span>
                       <span className={`${styles.statusBadge} ${styles[enrollment.status]}`}>
                         {enrollment.status}
@@ -83,7 +80,7 @@ export default function CoursesPage() {
                       <div>
                         <p className={styles.statLabel}>Start Date</p>
                         <p className={styles.statValue}>
-                          {new Date(enrollment.enrollment_date).toLocaleDateString('en-US', {
+                          {new Date(enrollment.batch_start_date).toLocaleDateString('en-US', {
                             month: 'short',
                             day: 'numeric',
                             year: 'numeric'
@@ -97,7 +94,7 @@ export default function CoursesPage() {
                       <div>
                         <p className={styles.statLabel}>End Date</p>
                         <p className={styles.statValue}>
-                          {new Date(enrollment.end_date).toLocaleDateString('en-US', {
+                          {new Date(enrollment.calculated_end_date).toLocaleDateString('en-US', {
                             month: 'short',
                             day: 'numeric',
                             year: 'numeric'

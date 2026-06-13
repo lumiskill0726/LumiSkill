@@ -1,19 +1,45 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './EnrollmentForm.module.css';
 
 export default function EnrollmentForm({ courseName, courseSlug, priceDisplay }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [upcomingBatch, setUpcomingBatch] = useState(null);
   const [form, setForm] = useState({
     studentName: '',
     parentName: '',
     email: '',
     phone: '',
     studentClass: '',
+    batchStartDate: '',
   });
   const [error, setError] = useState('');
+
+  // Fetch upcoming batch for this course
+  useEffect(() => {
+    async function fetchBatch() {
+      try {
+        const response = await fetch(`/api/courses/${courseSlug}`);
+        const data = await response.json();
+        if (data.success && data.course.upcomingBatch) {
+          const batch = data.course.upcomingBatch;
+          setUpcomingBatch(batch);
+          // Pre-fill batch start date
+          const formattedDate = new Date(batch.startDate).toLocaleDateString('en-IN', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric'
+          });
+          setForm(prev => ({ ...prev, batchStartDate: formattedDate }));
+        }
+      } catch (error) {
+        console.error('Error fetching batch:', error);
+      }
+    }
+    fetchBatch();
+  }, [courseSlug]);
 
   const numericAmount = parseInt(priceDisplay?.replace(/[₹,]/g, '') || '0');
 
@@ -209,24 +235,37 @@ export default function EnrollmentForm({ courseName, courseSlug, priceDisplay })
       </div>
 
       <div className={styles.field}>
-        <label className={styles.label}>Student's Class *</label>
-        <select
+        <label className={styles.label}>Student's Class / Occupation *</label>
+        <input
+          type="text"
           name="studentClass"
           value={form.studentClass}
           onChange={handleChange}
+          placeholder="e.g. Class 10, College Student, Working Professional"
           className={styles.input}
           required
-        >
-          <option value="">Select Class</option>
-          <option value="6">Class 6</option>
-          <option value="7">Class 7</option>
-          <option value="8">Class 8</option>
-          <option value="9">Class 9</option>
-          <option value="10">Class 10</option>
-          <option value="11">Class 11</option>
-          <option value="12">Class 12</option>
-        </select>
+        />
+        <small className={styles.fieldHint}>
+          Enter your class (e.g., Class 8) or occupation (e.g., College Student, Software Engineer)
+        </small>
       </div>
+
+      {upcomingBatch && (
+        <div className={styles.field}>
+          <label className={styles.label}>Your Batch Starts From</label>
+          <input
+            type="text"
+            name="batchStartDate"
+            value={form.batchStartDate}
+            className={styles.input}
+            readOnly
+            style={{ backgroundColor: '#f0f4ff', cursor: 'not-allowed' }}
+          />
+          <small className={styles.fieldHint}>
+            📅 You will be enrolled in the {upcomingBatch.batchName} batch
+          </small>
+        </div>
+      )}
 
       {error && <p className={styles.error}>⚠️ {error}</p>}
 

@@ -51,6 +51,23 @@
   flex-direction: column;
 }
 
+/* ---- Batch Info ---- */
+.batchInfo {
+  background: linear-gradient(135deg, #6C3EE8 0%, #8B5CF6 100%);
+  color: white;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  margin-bottom: 14px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(108, 62, 232, 0.2);
+  font-weight: 600;
+}
+
+.batchInfo strong {
+  font-weight: 700;
+}
+
 .card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-lg);

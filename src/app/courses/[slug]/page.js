@@ -1,18 +1,92 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { coursesData, getCourseBySlug } from '@/data/courses';
+import { supabaseAdmin } from '@/lib/supabase';
 import PaymentButton from '@/components/PaymentButton/PaymentButton';
 import styles from './page.module.css';
 
-/* ---- Generate static pages for all 8 courses ---- */
+/* ---- Fetch all active courses for static generation ---- */
+async function getAllActiveCourses() {
+  const supabase = supabaseAdmin();
+  const { data: courses } = await supabase
+    .from('courses')
+    .select('slug')
+    .eq('is_active', true);
+  return courses || [];
+}
+
+/* ---- Fetch single course by slug ---- */
+async function getCourseBySlug(slug) {
+  const supabase = supabaseAdmin();
+  const { data: courses } = await supabase
+    .from('courses')
+    .select(`
+      *,
+      course_syllabus (
+        id,
+        month_number,
+        title,
+        topics
+      ),
+      course_faqs (
+        id,
+        question,
+        answer,
+        display_order
+      )
+    `)
+    .eq('slug', slug)
+    .eq('is_active', true)
+    .limit(1);
+
+  if (!courses || courses.length === 0) return null;
+
+  const course = courses[0];
+  return {
+    id: course.id,
+    slug: course.slug,
+    title: course.title,
+    subtitle: course.subtitle || course.level,
+    tagline: course.description,
+    badge: course.badge,
+    badgeType: course.badge_type,
+    level: course.level,
+    duration: `${course.duration_months} Months`,
+    price: `₹${course.price.toLocaleString('en-IN')}`,
+    students: `${course.students_enrolled || 0}+`,
+    icon: course.icon || '📚',
+    description: course.description,
+    longDescription: course.long_description,
+    skills: [],
+    outcomes: [],
+    whoIsItFor: [],
+    curriculum: course.course_syllabus
+      ?.sort((a, b) => a.month_number - b.month_number)
+      .map((s) => ({
+        week: `Month ${s.month_number}`,
+        title: s.title,
+        topics: s.topics,
+      })) || [],
+    faqs: course.course_faqs
+      ?.sort((a, b) => a.display_order - b.display_order)
+      .map((f) => ({
+        q: f.question,
+        a: f.answer,
+      })) || [],
+    gradient: 'linear-gradient(135deg, #1e1e2e 0%, #2a2a4a 100%)',
+    heroGradient: 'linear-gradient(135deg, #6C3EE8 0%, #3776AB 100%)',
+  };
+}
+
+/* ---- Generate static pages for all active courses ---- */
 export async function generateStaticParams() {
-  return coursesData.map((course) => ({ slug: course.slug }));
+  const courses = await getAllActiveCourses();
+  return courses.map((course) => ({ slug: course.slug }));
 }
 
 /* ---- Dynamic SEO metadata ---- */
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const course = getCourseBySlug(slug);
+  const course = await getCourseBySlug(slug);
   if (!course) return { title: 'Course Not Found | LumiSkill' };
 
   return {
@@ -29,12 +103,26 @@ export async function generateMetadata({ params }) {
 
 export default async function CourseDetailPage({ params }) {
   const { slug } = await params;
-  const course = getCourseBySlug(slug);
+  const course = await getCourseBySlug(slug);
 
   if (!course) notFound();
 
   /* Related courses (exclude current) */
-  const related = coursesData.filter((c) => c.slug !== slug).slice(0, 4);
+  const allCourses = await getAllActiveCourses();
+  const supabase = supabaseAdmin();
+  const { data: relatedData } = await supabase
+    .from('courses')
+    .select('id, slug, title, icon, price')
+    .eq('is_active', true)
+    .neq('slug', slug)
+    .limit(4);
+  
+  const related = relatedData?.map(c => ({
+    slug: c.slug,
+    title: c.title,
+    icon: c.icon || '📚',
+    price: `₹${c.price.toLocaleString('en-IN')}`,
+  })) || [];
 
   /* JSON-LD Schemas */
   const numericPrice = parseInt(course.price.replace(/[₹,]/g, ''));

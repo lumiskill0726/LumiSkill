@@ -1,0 +1,459 @@
+.container {
+  padding: 0;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #888;
+  margin: 0;
+}
+
+/* Message Alert */
+.message {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+.message.success {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10b981;
+}
+
+.message.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section */
+.section {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Form Elements */
+.label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.select {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.875rem 1rem;
+  background: #0f0f0f;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.select:hover {
+  border-color: #6C3EE8;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #6C3EE8;
+  box-shadow: 0 0 0 3px rgba(108, 62, 232, 0.1);
+}
+
+/* Batches Grid */
+.batchesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.batchCard {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s;
+}
+
+.batchCard:hover {
+  border-color: #6C3EE8;
+  transform: translateY(-2px);
+}
+
+.batchIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6C3EE8, #8B5CF6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.batchInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.batchName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 0.25rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.batchMeta {
+  font-size: 0.875rem;
+  color: #888;
+  margin: 0;
+}
+
+.viewBtn {
+  padding: 0.625rem 1.25rem;
+  background: #6C3EE8;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.viewBtn:hover {
+  background: #5a32c4;
+  transform: translateY(-1px);
+}
+
+/* Syllabus Header */
+.syllabusHeader {
+  margin-bottom: 1.5rem;
+}
+
+.backBtn {
+  padding: 0.625rem 1.25rem;
+  background: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #333;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 1rem;
+}
+
+.backBtn:hover {
+  background: #333;
+  border-color: #6C3EE8;
+}
+
+.studentHeader {
+  margin-top: 1rem;
+}
+
+/* Syllabus Grid */
+.syllabusGrid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.monthCard {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+
+.monthCard:hover {
+  border-color: #6C3EE8;
+}
+
+.monthHeader {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+
+.monthNumber {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6C3EE8, #8B5CF6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.monthInfo {
+  flex: 1;
+}
+
+.monthTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+}
+
+.monthMeta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.statusBadge {
+  padding: 0.375rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.statusBadge.not_started {
+  background: rgba(107, 114, 128, 0.1);
+  color: #9ca3af;
+}
+
+.statusBadge.in_progress {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.statusBadge.completed {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.progressText {
+  font-size: 0.9rem;
+  color: #888;
+  font-weight: 500;
+}
+
+/* Topics List */
+.topicsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.topicItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.topicItem:hover {
+  background: #222;
+  border-color: #6C3EE8;
+}
+
+.topicItem.completed {
+  background: rgba(16, 185, 129, 0.05);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.topicItem.completed .topicName {
+  color: #10b981;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #6C3EE8;
+}
+
+.topicName {
+  flex: 1;
+  font-size: 0.95rem;
+  color: #ccc;
+  font-weight: 500;
+}
+
+/* Save Section */
+.saveSection {
+  position: sticky;
+  bottom: 0;
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-top: 1px solid #2a2a2a;
+  margin: 0 -2rem -2rem -2rem;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.saveBtn {
+  padding: 0.875rem 2rem;
+  background: #6C3EE8;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.saveBtn:hover:not(:disabled) {
+  background: #5a32c4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 62, 232, 0.3);
+}
+
+.saveBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: #888;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #2a2a2a;
+  border-top-color: #6C3EE8;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #888;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.emptyState h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ccc;
+  margin: 0 0 0.5rem 0;
+}
+
+.emptyState p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 1.5rem;
+  }
+
+  .studentsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .studentCard {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .monthHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .monthMeta {
+    justify-content: center;
+  }
+
+  .saveSection {
+    margin: 0 -1.5rem -1.5rem -1.5rem;
+    padding: 1rem;
+  }
+
+  .saveBtn {
+    width: 100%;
+  }
+}

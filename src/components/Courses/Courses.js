@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Courses.module.css';
 
@@ -164,7 +164,7 @@ const courses = [
     skills: ['Java Syntax', 'Variables', 'Loops', 'Simple Programs'],
     duration: '4 Months',
     level: 'Beginner',
-    price: '₹4,999',
+    price: '₹8,999',
     students: '400+',
   },
   {
@@ -180,7 +180,7 @@ const courses = [
     skills: ['Variables & Loops', 'Functions', 'Logic Building', 'Mini Programs'],
     duration: '4 Months',
     level: 'Beginner',
-    price: '₹5,999',
+    price: '₹8,999',
     students: '600+',
   },
   {
@@ -196,7 +196,7 @@ const courses = [
     skills: ['OOP', 'Functions', 'File Handling', 'Mini Projects'],
     duration: '6 Months',
     level: 'Beginner–Intermediate',
-    price: '₹7,999',
+    price: '₹8,999',
     students: '800+',
   },
   {
@@ -212,7 +212,7 @@ const courses = [
     skills: ['HTML5 & CSS3', 'JavaScript', 'Responsive Design', 'Real Projects'],
     duration: '6 Months',
     level: 'Beginner–Intermediate',
-    price: '₹9,999',
+    price: '₹12,999',
     students: '650+',
   },
   {
@@ -228,7 +228,7 @@ const courses = [
     skills: ['OOP Concepts', 'Functions', 'Collections', 'Mini Projects'],
     duration: '6 Months',
     level: 'Intermediate',
-    price: '₹8,999',
+    price: '₹11,999',
     students: '350+',
   },
   {
@@ -244,7 +244,7 @@ const courses = [
     skills: ['Core Java', 'Data Structures', 'Algorithms', 'Interview Prep'],
     duration: '8 Months',
     level: 'Intermediate–Advanced',
-    price: '₹11,999',
+    price: '₹14,999',
     students: '300+',
   },
   {
@@ -260,7 +260,7 @@ const courses = [
     skills: ['AI Concepts', 'ML Basics', 'API Integration', 'AI Projects'],
     duration: '6 Months',
     level: 'Intermediate',
-    price: '₹9,999',
+    price: '₹11,999',
     students: '400+',
   },
   {
@@ -276,19 +276,60 @@ const courses = [
     skills: ['React.js', 'Node.js', 'Databases', 'Full Projects'],
     duration: '8 Months',
     level: 'Advanced',
-    price: '₹14,999',
+    price: '₹17,999',
     students: '200+',
   },
 ];
 
 const TABS = ['All Courses', 'Beginner', 'Intermediate', 'Advanced'];
 
+// Icon mapping for courses from API
+const iconMap = {
+  'java-basics': JavaBasicsIcon,
+  'python-basics': PythonBasicsIcon,
+  'python-programming': PythonProgrammingIcon,
+  'web-development': WebDevIcon,
+  'java-programming': JavaProgrammingIcon,
+  'java-dsa': JavaDSAIcon,
+  'ai-automation': AIAutomationIcon,
+  'full-stack-web-dev': FullStackIcon,
+};
+
 export default function Courses() {
   const [activeTab, setActiveTab] = useState('All Courses');
+  const [apiCourses, setApiCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchCourses() {
+      try {
+        const response = await fetch('/api/courses');
+        const data = await response.json();
+        if (data.success) {
+          setApiCourses(data.courses);
+        }
+      } catch (error) {
+        console.error('Error fetching courses:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchCourses();
+  }, []);
+
+  // Use API courses if available, otherwise fallback to hardcoded
+  const coursesToDisplay = apiCourses.length > 0 ? apiCourses : courses;
 
   const filtered = activeTab === 'All Courses'
-    ? courses
-    : courses.filter((c) => c.subtitle === activeTab);
+    ? coursesToDisplay
+    : coursesToDisplay.filter((c) => c.subtitle === activeTab || c.level === activeTab);
+
+  // Format date helper
+  const formatDate = (dateString) => {
+    if (!dateString) return null;
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+  };
 
   return (
     <section className={`section ${styles.courses}`} id="courses">
@@ -323,7 +364,14 @@ export default function Courses() {
               {/* Card header */}
               <div className={styles.cardHeader} style={{ background: course.gradient }}>
                 <div className={styles.courseIcon}>
-                  <course.IconComponent />
+                  {course.IconComponent ? (
+                    <course.IconComponent />
+                  ) : (
+                    iconMap[course.slug] && (() => {
+                      const IconComp = iconMap[course.slug];
+                      return <IconComp />;
+                    })()
+                  )}
                 </div>
                 <span className={`${styles.badge} ${styles[course.badgeType]}`}>
                   {course.badge}
@@ -333,6 +381,13 @@ export default function Courses() {
 
               {/* Card body */}
               <div className={styles.cardBody}>
+                {/* Upcoming Batch Info */}
+                {course.upcomingBatch && (
+                  <div className={styles.batchInfo}>
+                    📅 Next Batch: <strong>{formatDate(course.upcomingBatch.startDate)}</strong>
+                  </div>
+                )}
+                
                 <div className={styles.metaRow}>
                   <span className={styles.levelBadge}>{course.level}</span>
                   <span className={styles.duration}>⏱ {course.duration}</span>
@@ -356,9 +411,6 @@ export default function Courses() {
                   <div className={styles.priceBlock}>
                     <div className={styles.price}>{course.price}</div>
                     <div className={styles.perMonth}>one-time fee</div>
-                  </div>
-                  <div className={styles.studentsCount}>
-                    👨‍🎓 {course.students} students
                   </div>
                 </div>
 
